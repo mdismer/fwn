@@ -1,10 +1,20 @@
+// Import styles of packages that you've installed.
+// All packages except `@mantine/hooks` require styles imports
+import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
+import "@mantine/carousel/styles.css";
+import "@mantine/charts/styles.css";
+
 import {
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteError,
 } from "@remix-run/react";
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { NothingFoundBackground } from "./components/errors/NothingFound";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,9 +24,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <ColorSchemeScript />
       </head>
       <body>
-        {children}
+        <MantineProvider>{children}</MantineProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -26,4 +37,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />;
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError() as Record<string, unknown>;
+  console.error(error);
+  if ('status' in error) {
+    if (error.status === 404) {
+    return  <NothingFoundBackground />
+    }
+  }
+
+
+  return <div>Unknown Error</div>
 }
