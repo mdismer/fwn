@@ -4,6 +4,8 @@ import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 import "@mantine/carousel/styles.css";
 import "@mantine/charts/styles.css";
+import "@mantine/tiptap/styles.css";
+import "./styles.css";
 
 import {
   Links,
@@ -42,12 +44,11 @@ export default function App() {
 export function ErrorBoundary() {
   const error = useRouteError() as Record<string, unknown>;
   console.error(error);
-  if ('status' in error) {
+  if ("status" in error) {
     if (error.status === 404) {
-    return  <NothingFoundBackground />
+      return <NothingFoundBackground />;
     }
   }
 
-
-  return <div>Unknown Error</div>
+  return <div>Unknown Error</div>;
 }

@@ -13,11 +13,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+type Goal {
+  name String
+  note String?
+  difficulty Int
+  progress String
+}
+
 model User {
   id                String     @id @default(auto()) @map("_id") @db.ObjectId
   email             String     @unique
   encryptedPassword String
-  campaigns          Campaign[]
+  campaigns         Campaign[]
   confirmationToken String?
 }
 
@@ -31,19 +38,20 @@ model Campaign {
 }
 
 model Faction {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   description String?
-  campaing    Campaign @relation(fields: [campaignId], references: [id])
-  campaignId  String   @db.ObjectId
+  campaing    Campaign    @relation(fields: [campaignId], references: [id])
+  campaignId  String      @db.ObjectId
   maxHp       Int
   currentHp   Int
   force       Int
   wealth      Int
   cunning     Int
   experience  Int
-  homeWorld   World    @relation(fields: [homeWorldId], references: [id])
-  homeWorldId String   @db.ObjectId
+  homeWorld   World       @relation(fields: [homeWorldId], references: [id])
+  homeWorldId String      @db.ObjectId
+  goal        Goal?
 }
 
 model World {

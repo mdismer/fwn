@@ -9,7 +9,6 @@ import {
   Group,
   Button,
 } from "@mantine/core";
-import classes from "./login.module.css";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { Form, Link } from "@remix-run/react";
 import { authenticator } from "~/services/auth.server";
@@ -19,7 +18,7 @@ import { authenticator } from "~/services/auth.server";
 export default function Screen() {
   return (
     <Container size={420} my={40}>
-      <Title ta="center" className={classes.title}>
+      <Title ta="center" className="title">
         Welcome back!
       </Title>
       <Text c="dimmed" size="sm" ta="center" mt={5}>
@@ -31,7 +30,13 @@ export default function Screen() {
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <Form method="post">
-          <TextInput label="Email" placeholder="you@mantine.dev" name="email" type="email" required />
+          <TextInput
+            label="Email"
+            placeholder="you@mantine.dev"
+            name="email"
+            type="email"
+            required
+          />
           <PasswordInput
             label="Password"
             placeholder="Your password"
@@ -40,7 +45,7 @@ export default function Screen() {
             name="password"
           />
           <Group justify="center" mt="lg">
-            <Anchor component={Link} size="sm" to="/forgot-password" >
+            <Anchor component={Link} size="sm" to="/forgot-password">
               Forgot password?
             </Anchor>
           </Group>
@@ -60,7 +65,7 @@ export async function action({ request }: ActionFunctionArgs) {
   // request object, optionally we pass an object with the URLs we want the user
   // to be redirected to after a success or a failure
   return await authenticator.authenticate("user-pass", request, {
-    successRedirect: "/dashboard",
+    successRedirect: "/",
     failureRedirect: "/login",
   });
 }
@@ -71,6 +76,6 @@ export async function action({ request }: ActionFunctionArgs) {
 export async function loader({ request }: LoaderFunctionArgs) {
   // If the user is already authenticated redirect to /dashboard directly
   return await authenticator.isAuthenticated(request, {
-    successRedirect: "/dashboard",
+    successRedirect: "/",
   });
 }

@@ -9,19 +9,17 @@ import {
   Group,
   Button,
 } from "@mantine/core";
-import classes from "./login.module.css";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { Form, Link, redirect } from "@remix-run/react";
 import { authenticator } from "~/services/auth.server";
-import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcrypt";
+import createNewUser from "~/server/createNewUser";
 
 // First we create our UI with the form doing a POST and the inputs with the
 // names we are going to use in the strategy
 export default function Screen() {
   return (
     <Container size={420} my={40}>
-      <Title ta="center" className={classes.title}>
+      <Title ta="center" className="title">
         Welcome!
       </Title>
       <Text c="dimmed" size="sm" ta="center" mt={5}>
@@ -73,18 +71,9 @@ export async function action({ request }: ActionFunctionArgs) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  const prisma = new PrismaClient();
+  await createNewUser(email?.toString() ?? '', password?.toString() ?? '');
 
-  console.log(password, email);
-
-  await prisma.user.create({
-    data: {
-      email: email?.toString() ?? "",
-      encryptedPassword: await bcrypt.hash(password?.toString() ?? "", 10),
-    },
-  });
-
-  return redirect('/login')
+  return redirect("/login");
 }
 
 // Finally, we can export a loader function where we check if the user is
