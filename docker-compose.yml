@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   mongo1:
     image: mongo:7.0
@@ -40,7 +38,24 @@ services:
     volumes:
       - "mongo3_data:/data/db"
       - "mongo3_config:/data/configdb"
+  minio:
+    image: docker.io/bitnami/minio
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    networks:
+      - minionetwork
+    volumes:
+      - 'minio_data:/data'
+    environment:
+      - MINIO_ROOT_USER=root
+      - MINIO_ROOT_PASSWORD=secret
+      - MINIO_DEFAULT_BUCKETS=fwn
 
+networks:
+  minionetwork:
+    driver: bridge
+    
 volumes:
   mongo1_data:
   mongo2_data:
@@ -48,3 +63,5 @@ volumes:
   mongo1_config:
   mongo2_config:
   mongo3_config:
+  minio_data:
+    driver: local

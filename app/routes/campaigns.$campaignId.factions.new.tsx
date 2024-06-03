@@ -25,6 +25,7 @@ import { useState } from "react";
 import { LoaderFunctionArgs, json, redirect } from "@remix-run/node";
 import { authenticator } from "~/services/auth.server";
 import { PrismaClient } from "@prisma/client";
+import GoalSelect from "~/components/GoalSelect";
 
 type FactionSize = "Minor" | "Major" | "Regional Hegemon";
 
@@ -39,6 +40,7 @@ type FactionForm = {
     name: string;
     id: string;
   };
+  goal: string;
 };
 
 const sizes: FactionSize[] = ["Minor", "Major", "Regional Hegemon"];
@@ -111,6 +113,7 @@ export default function Screen() {
       cunning: statMap["Minor"][0],
       force: statMap["Minor"][1],
       wealth: statMap["Minor"][2],
+      goal: "",
     },
   });
 
@@ -245,6 +248,12 @@ export default function Screen() {
             </Combobox.Dropdown>
           </Combobox>
         </Input.Wrapper>
+
+        <GoalSelect
+          label="Goal"
+          value={form.values.goal}
+          onChange={(goal) => form.setFieldValue("goal", goal)}
+        />
 
         <RichTextEditor mt={8} editor={editor}>
           <RichTextEditor.Toolbar sticky stickyOffset={60}>
