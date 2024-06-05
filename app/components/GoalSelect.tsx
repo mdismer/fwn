@@ -1,7 +1,19 @@
 import { Combobox, Input, InputBase, useCombobox } from "@mantine/core";
 import { useCallback, useState } from "react";
 
-const defaultGoals = [""];
+const defaultGoals = [
+  "Military Conquest",
+  "Commercial Expansion",
+  "Intelligence Coup",
+  "Planetary Seizure",
+  "Expand Influence",
+  "Blood the Enemy",
+  "Peaceable Kingdom",
+  "Destroy the Foe",
+  "Inside Enemy Territory",
+  "Invincible Valor",
+  "Wealth of Worlds",
+];
 
 type Props = {
   label: string;
@@ -13,7 +25,9 @@ export default function GoalSelect({ label, value, onChange }: Props) {
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
-  const [data, setData] = useState(defaultGoals);
+  const [data, setData] = useState(
+    defaultGoals.sort((a, b) => a.localeCompare(b))
+  );
   const [search, setSearch] = useState("");
 
   const exactOptionMatch = data.some((item) => item === search);
