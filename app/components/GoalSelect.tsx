@@ -83,6 +83,6 @@ export default function GoalSelect({ label, value, onChange }: Props) {
           </Combobox.Options>
         </Combobox.Dropdown>
       </Combobox>
-    </Input>
+    </Input.Wrapper>
   );
 }
