@@ -1,10 +1,9 @@
-import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
+import client from "./client";
 
 export default async function createNewUser(email: string, password: string) {
-  const prisma = new PrismaClient();
 
-  const user = await prisma.user.create({
+  const user = await client.user.create({
     data: {
       email: email,
       encryptedPassword: await bcrypt.hash(password, 10),

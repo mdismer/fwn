@@ -2,9 +2,9 @@ import { Outlet, useLoaderData } from "@remix-run/react";
 import { useDisclosure } from "@mantine/hooks";
 import { LoaderFunctionArgs, json, redirect } from "@remix-run/node";
 import { authenticator } from "~/services/auth.server";
-import { PrismaClient } from "@prisma/client";
 import Navbar from "~/components/Navbar";
 import { AppShell, Burger } from "@mantine/core";
+import client from "~/server/client";
 
 export async function loader({ request, params }: LoaderFunctionArgs) {
   const user = await authenticator.isAuthenticated(request);
@@ -15,9 +15,7 @@ export async function loader({ request, params }: LoaderFunctionArgs) {
 
   const { campaignId } = params;
 
-  const prisma = new PrismaClient();
-
-  const campaign = await prisma.campaign.findUnique({
+  const campaign = await client.campaign.findUnique({
     where: {
       id: campaignId,
       ownerId: user?.id,

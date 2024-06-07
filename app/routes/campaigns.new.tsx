@@ -6,13 +6,13 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
-import { PrismaClient } from "@prisma/client";
 import {
   ActionFunctionArgs,
   LoaderFunctionArgs,
   redirect,
 } from "@remix-run/node";
 import { Form } from "@remix-run/react";
+import client from "~/server/client";
 import { authenticator } from "~/services/auth.server";
 
 export function loader({ request }: LoaderFunctionArgs) {
@@ -28,9 +28,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
   const user = await authenticator.isAuthenticated(request);
 
-  const prisma = new PrismaClient();
-
-  const campaign =  await prisma.campaign.create({
+  const campaign =  await client.campaign.create({
     data: {
       name,
       ownerId: user?.id ?? '',

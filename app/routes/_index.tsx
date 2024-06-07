@@ -1,5 +1,4 @@
 import { Anchor, Container, Stack, Title } from "@mantine/core";
-import { PrismaClient } from "@prisma/client";
 import {
   json,
   redirect,
@@ -7,6 +6,7 @@ import {
   type MetaFunction,
 } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
+import client from "~/server/client";
 import { authenticator } from "~/services/auth.server";
 
 export const meta: MetaFunction = () => {
@@ -23,9 +23,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     return redirect("/login");
   }
 
-  const prisma = new PrismaClient();
-
-  const campaigns = await prisma.campaign.findMany({
+  const campaigns = await client.campaign.findMany({
     where: {
       ownerId: user.id,
     },

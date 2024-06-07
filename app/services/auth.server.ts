@@ -1,8 +1,8 @@
 import { Authenticator } from "remix-auth";
 import { FormStrategy } from "remix-auth-form";
 import { sessionStorage } from "~/services/session.server";
-import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
+import client from "~/server/client";
 
 type User = {
   email: string;
@@ -10,12 +10,11 @@ type User = {
 };
 
 async function login(email?: string, password?: string) {
-  const prisma = new PrismaClient();
   if (!email || !password) {
     throw new Error("No password or email provided");
   }
 
-  const user = await prisma.user.findFirst({
+  const user = await client.user.findFirst({
     where: {
       email,
     },

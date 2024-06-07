@@ -1,14 +1,12 @@
 import { Anchor, Container, Paper } from "@mantine/core";
-import { PrismaClient } from "@prisma/client";
 import { LoaderFunctionArgs, json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
+import client from "~/server/client";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { campaignId } = params;
 
-  const prisma = new PrismaClient();
-
-  const factionCount = await prisma.faction.count({
+  const factionCount = await client.faction.count({
     where: {
       campaignId,
     },
