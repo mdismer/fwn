@@ -36,7 +36,7 @@ export default function Screen() {
   const [opened, { toggle }] = useDisclosure();
   const data = useLoaderData<{ id: string }>();
 
-  const baseUrl = `/campaigns/${data.id}/dashboard`;
+  const baseUrl = `/campaigns/${data.id}`;
 
   return (
     <AppShell

@@ -35,7 +35,7 @@ type Props = { baseUrl: string };
 
 export default function Navbar({ baseUrl }: Props) {
   const mockdata = [
-    { icon: IconHome2, label: "Home", to: baseUrl },
+    { icon: IconHome2, label: "Home", to: `${baseUrl}/dashboard` },
     {
       icon: IconDeviceDesktopAnalytics,
       label: "Factions",
