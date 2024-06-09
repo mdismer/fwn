@@ -4,10 +4,8 @@ export type FactionSize = "Minor" | "Major" | "Regional Hegemon";
 
 export type AssetDto = {
   type: string;
-  world: {
-    name: string;
-    id: string;
-  };
+  world: WorldDto;
+  id: string;
 };
 
 export type WorldDto = {
