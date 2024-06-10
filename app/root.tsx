@@ -15,8 +15,27 @@ import {
   ScrollRestoration,
   useRouteError,
 } from "@remix-run/react";
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { ColorSchemeScript, MantineColorsTuple, MantineProvider, createTheme } from "@mantine/core";
 import { NothingFoundBackground } from "./components/errors/NothingFound";
+
+const myColor: MantineColorsTuple = [
+  '#f6eeff',
+  '#e7daf7',
+  '#cab1ea',
+  '#ad86dd',
+  '#9562d2',
+  '#854bcb',
+  '#7d3ec9',
+  '#6b31b2',
+  '#5f2aa0',
+  '#52228d'
+];
+
+const theme = createTheme({
+  colors: {
+    myColor,
+  }
+});
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -29,7 +48,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider theme={theme}>{children}</MantineProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
