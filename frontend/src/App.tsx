@@ -1,39 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "@mantine/core/styles.css";
 
-import '@mantine/core/styles.css';
+import { MantineColorsTuple, MantineProvider, createTheme } from "@mantine/core";
+import { ReactKeycloakProvider } from "@react-keycloak/web";
+import keycloak from "./keycloak";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 
-import { MantineProvider } from '@mantine/core';
+const myColor: MantineColorsTuple = [
+  '#f6eeff',
+  '#e7daf7',
+  '#cab1ea',
+  '#ad86dd',
+  '#9562d2',
+  '#854bcb',
+  '#7d3ec9',
+  '#6b31b2',
+  '#5f2aa0',
+  '#52228d'
+];
+
+const theme = createTheme({
+  colors: {
+    myColor,
+  }
+});
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <MantineProvider>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </MantineProvider>
-  )
+    <ReactKeycloakProvider authClient={keycloak}>
+      <MantineProvider theme={theme}>
+       <RouterProvider router={router} />
+      </MantineProvider>
+    </ReactKeycloakProvider>
+  );
 }
 
-export default App
+export default App;
