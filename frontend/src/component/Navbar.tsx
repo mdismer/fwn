@@ -8,7 +8,8 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
-import classes from './Navbar.module.css'
+import classes from "./Navbar.module.css";
+import { useKeycloak } from "@react-keycloak/web";
 
 interface NavbarLinkProps {
   icon: typeof IconHome2;
@@ -35,6 +36,7 @@ function NavbarLink({ icon: Icon, label, active, to }: NavbarLinkProps) {
 type Props = { baseUrl: string };
 
 export default function Navbar({ baseUrl }: Props) {
+    const {keycloak} = useKeycloak()
   const mockdata = [
     { icon: IconHome2, label: "Home", to: `${baseUrl}/dashboard` },
     {
@@ -66,7 +68,18 @@ export default function Navbar({ baseUrl }: Props) {
           label="Change account"
           to="/switch-account"
         />
-        <NavbarLink icon={IconLogout} label="Logout" to="/logout" />
+        <Tooltip
+          label="Logout"
+          position="right"
+          transitionProps={{ duration: 0 }}
+        >
+          <UnstyledButton
+            className={classes.link}
+            onClick={() =>keycloak.logout()}
+          >
+            <IconLogout style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
+          </UnstyledButton>
+        </Tooltip>
       </Stack>
     </nav>
   );
