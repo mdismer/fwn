@@ -3,7 +3,7 @@ Keycloak.configure do |config|
     config.realm_id   = ENV["KEYCLOAK_REALM_ID"]
     config.logger     = Rails.logger
     config.skip_paths = {
-      post:   [/^\/message/],
+      #post:   [/^\/graphql/],
       get:    [/^\/locales/, /^\/health\/.+/]
     }
   end

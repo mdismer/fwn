@@ -3,7 +3,7 @@ class CampaignsController < ApplicationController
 
   # GET /campaigns
   def index
-    @campaigns = Campaign.all
+    @campaigns = Campaign.where(owner_id: Keycloak::Helper.current_user_id(request.env))
 
     render json: @campaigns
   end
@@ -16,7 +16,7 @@ class CampaignsController < ApplicationController
   # POST /campaigns
   def create
     @campaign = Campaign.new(campaign_params)
-
+    @campaign.owner_id = Keycloak::Helper.current_user_id(request.env)
     if @campaign.save
       render json: @campaign, status: :created, location: @campaign
     else
@@ -39,13 +39,14 @@ class CampaignsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_campaign
-      @campaign = Campaign.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def campaign_params
-      params.require(:campaign).permit(:owner_id, :name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_campaign
+    @campaign = Campaign.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def campaign_params
+    params.require(:campaign).permit(:name)
+  end
 end
