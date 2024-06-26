@@ -20,7 +20,7 @@ export default function useGetRequest<T>(url: string) {
 
   useEffect(() => {
     makeRequest();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
   return { reload: makeRequest, data };

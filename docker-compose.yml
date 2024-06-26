@@ -2,7 +2,6 @@ services:
   backend:
     build:
       context: ./fwn-api/
-      target: base
     ports:
       - "3000:3000"
     depends_on:
@@ -25,21 +24,27 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: fwn-api_development
   minio:
-    image: docker.io/bitnami/minio
-    ports:
-      - '9000:9000'
-      - '9001:9001'
-    networks:
-      - minionetwork
+    container_name: minio
+    image: minio/minio:latest
     volumes:
-      - 'minio_data:/data'
+      - "minio_data:/data"
+    ports:
+      - "9000:9000"
+    networks:
+      - minio_network
+    restart: always      
     environment:
-      - MINIO_ROOT_USER=root
-      - MINIO_ROOT_PASSWORD=secret
-      - MINIO_DEFAULT_BUCKETS=fwn
+      MINIO_ROOT_USER: "admin"
+      MINIO_ROOT_PASSWORD: "adminaaaaa"      
+    command: server /data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
 
 networks:
-  minionetwork:
+  minio_network:
     driver: bridge
     
 volumes:

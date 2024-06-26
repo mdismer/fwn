@@ -1,8 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "./routes/Root";
-import Dashboard from "./routes/Dashboard";
-import NewCampaign from "./routes/campaigns/New.tsx";
-import NewFaction from "./routes/factions/New.tsx";
+import { lazy } from "react";
+
+const Home = lazy(() => import("./routes/Home.tsx"));
+const NewFaction = lazy(() => import("./routes/factions/New.tsx"));
+const NewCampaign = lazy(() => import("./routes/campaigns/New.tsx"));
+const Dashboard = lazy(() => import("./routes/Dashboard"));
+const Worlds = lazy(() => import("~/routes/WorldIndex.tsx"));
 
 const router = createBrowserRouter([
   {
@@ -10,18 +14,24 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: "campaigns/:campaignId",
-        element: <Dashboard />,
-        children: [
-          {
-            path: 'factions/new',
-            element: <NewFaction />
-          }
-        ]
+        path: "",
+        element: <Home />,
       },
       {
-        path: 'campaigns/new',
-        element: <NewCampaign />
+        path: "campaigns/:campaignId",
+        element: <Dashboard />,
+      },
+      {
+        path: "campaigns/:campaignId/factions/new",
+        element: <NewFaction />,
+      },
+      {
+        path: "campaigns/:campaignId/worlds",
+        element: <Worlds />,
+      },
+      {
+        path: "campaigns/new",
+        element: <NewCampaign />,
       },
     ],
   },

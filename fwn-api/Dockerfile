@@ -1,59 +1,24 @@
-# syntax = docker/dockerfile:1
+FROM ruby:3.3.3 AS base
 
-# Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
-ARG RUBY_VERSION=3.3.3
-FROM registry.docker.com/library/ruby:$RUBY_VERSION as base
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils cmake libpq-dev imagemagick expect libvips tcl shared-mime-info
 
-# Rails app lives here
-WORKDIR /rails
+RUN gem install bundler
 
-# Set production environment
-ENV RAILS_ENV="production" \
-    BUNDLE_DEPLOYMENT="1" \
-    BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
+# use the cache folder for bundle files (speeds up development)
+# see: https://medium.com/@cristian_rivera/cache-rails-bundle-w-docker-compose-45512d952c2d
+# https://bundler.io/v1.2/bundle_install.html (why vendor/cache)
+# also: https://stackoverflow.com/questions/23801899/bundlergemnotfound-could-not-find-rake-10-3-2-in-any-of-the-sources
+ENV RUBYOPT="-W:no-deprecated -W:no-experimental"
+ENV appdir /opt/webapp
+WORKDIR $appdir
+COPY ./Gemfile* $appdir/
 
+FROM base AS build-base
+ENV VIPS_WARNING=0
 
-# Throw-away build stage to reduce size of final image
-FROM base as build
+RUN bundle install --jobs=8
 
-# Install packages needed to build gems
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libvips pkg-config
+COPY . $appdir
 
-# Install application gems
-COPY Gemfile Gemfile.lock ./
-RUN bundle install && \
-    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
-    bundle exec bootsnap precompile --gemfile
-
-# Copy application code
-COPY . .
-
-# Precompile bootsnap code for faster boot times
-RUN bundle exec bootsnap precompile app/ lib/
-
-
-# Final stage for app image
-FROM base
-
-# Install packages needed for deployment
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libsqlite3-0 libvips && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-# Copy built artifacts: gems, application
-COPY --from=build /usr/local/bundle /usr/local/bundle
-COPY --from=build /rails /rails
-
-# Run and own only the runtime files as a non-root user for security
-RUN useradd rails --create-home --shell /bin/bash && \
-    chown -R rails:rails db log storage tmp
-USER rails:rails
-
-# Entrypoint prepares the database.
-ENTRYPOINT ["/rails/bin/docker-entrypoint"]
-
-# Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
-CMD ["./bin/rails", "server"]
+# Start the main process.
+CMD ["bundle", "exec", "rails", "s"]

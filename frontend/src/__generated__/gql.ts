@@ -13,6 +13,9 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
+    "\nquery GetWorlds($campaignId: ID!) {\n  worlds(campaignId: $campaignId) {\n    id\n    name\n  }\n}\n": types.GetWorldsDocument,
+    "\nmutation CreateWorld($campaignId: ID!, $name: String!) {\n  worldCreate(\n    input: {\n      clientMutationId: \"CreateWorld\"\n      input: { campaignId: $campaignId, name: $name }\n    }\n  ) {\n    world {\n      id\n      name\n    }\n  }\n}\n\n": types.CreateWorldDocument,
+    "\n                          fragment NewWorld on World {\n                          id\n                          name\n                          }\n                          ": types.NewWorldFragmentDoc,
     "\nquery loadFactions($campaignId: ID!) {\n  factions(campaignId: $campaignId) {\n    id\n    name\n  }\n}\n": types.LoadFactionsDocument,
     "\n  query GetCampaigns {\n  campaigns {\n    id\n    name\n  }\n}\n\n": types.GetCampaignsDocument,
     "\nmutation CreateCampaign($name: String!) {\n  campaignCreate(input: { clientMutationId: \"CreateCampaign\", name: $name }) {\n    campaign {\n      id\n      name\n    }\n  }\n}\n": types.CreateCampaignDocument,
@@ -33,6 +36,18 @@ const documents = {
  */
 export function gql(source: string): unknown;
 
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\nquery GetWorlds($campaignId: ID!) {\n  worlds(campaignId: $campaignId) {\n    id\n    name\n  }\n}\n"): (typeof documents)["\nquery GetWorlds($campaignId: ID!) {\n  worlds(campaignId: $campaignId) {\n    id\n    name\n  }\n}\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\nmutation CreateWorld($campaignId: ID!, $name: String!) {\n  worldCreate(\n    input: {\n      clientMutationId: \"CreateWorld\"\n      input: { campaignId: $campaignId, name: $name }\n    }\n  ) {\n    world {\n      id\n      name\n    }\n  }\n}\n\n"): (typeof documents)["\nmutation CreateWorld($campaignId: ID!, $name: String!) {\n  worldCreate(\n    input: {\n      clientMutationId: \"CreateWorld\"\n      input: { campaignId: $campaignId, name: $name }\n    }\n  ) {\n    world {\n      id\n      name\n    }\n  }\n}\n\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n                          fragment NewWorld on World {\n                          id\n                          name\n                          }\n                          "): (typeof documents)["\n                          fragment NewWorld on World {\n                          id\n                          name\n                          }\n                          "];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

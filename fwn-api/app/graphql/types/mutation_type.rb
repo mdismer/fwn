@@ -2,6 +2,7 @@
 
 module Types
   class MutationType < Types::BaseObject
+    field :world_create, mutation: Mutations::WorldCreate
     field :faction_delete, mutation: Mutations::FactionDelete
     field :faction_update, mutation: Mutations::FactionUpdate
     field :faction_create, mutation: Mutations::FactionCreate

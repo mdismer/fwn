@@ -36,7 +36,7 @@ function NavbarLink({ icon: Icon, label, active, to }: NavbarLinkProps) {
 type Props = { baseUrl: string };
 
 export default function Navbar({ baseUrl }: Props) {
-    const {keycloak} = useKeycloak()
+  const { keycloak } = useKeycloak();
   const mockdata = [
     { icon: IconHome2, label: "Home", to: `${baseUrl}/dashboard` },
     {
@@ -75,9 +75,12 @@ export default function Navbar({ baseUrl }: Props) {
         >
           <UnstyledButton
             className={classes.link}
-            onClick={() =>keycloak.logout()}
+            onClick={() => keycloak.logout()}
           >
-            <IconLogout style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
+            <IconLogout
+              style={{ width: rem(20), height: rem(20) }}
+              stroke={1.5}
+            />
           </UnstyledButton>
         </Tooltip>
       </Stack>

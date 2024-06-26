@@ -27,12 +27,20 @@ module Types
       argument :campaign_id, ID, required: true
     end
 
+    field :worlds, [Types::WorldType], null: false do
+      argument :campaign_id, ID, required: true
+    end
+
     def campaigns
       Campaign.where(owner_id: context[:current_user_id]).select(:id, :name).order(:name)
     end
 
     def factions(campaign_id:)
       Faction.where(campaign_id: campaign_id).order(:name)
+    end
+
+    def worlds(campaign_id:)
+      World.where(campaign_id: campaign_id).select(:id, :name).order(:name)
     end
   end
 end
