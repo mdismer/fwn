@@ -1,14 +1,15 @@
 import { gql, useMutation } from "@apollo/client";
 import { Container, Stack, Title, Button } from "@mantine/core";
 import { JSONContent } from "@tiptap/react";
-import { useForm } from "@mantine/form";
+import {useForm, zodResolver} from "@mantine/form";
 import { useState } from "react";
 import { FactionForm } from "~/types/FactionForm.ts";
 import FactionBaseData, {
-  statMap,
 } from "~/component/factions/forms/FactionBaseData.tsx";
 import { FactionAssetList } from "~/component/factions/FactionAssetList.tsx";
 import { useParams } from "react-router-dom";
+import statMap from "~/util/factions/statMap.ts";
+import {z} from "zod";
 
 const CREATE_FACTION = gql(`
 mutation createFaction(
@@ -44,6 +45,18 @@ mutation createFaction(
 
 const defaultContent: JSONContent = { content: [], type: "doc" };
 
+const schema = z.object({
+  assets: z.array(z.object({})),
+  cunning: z.coerce.number(),
+  name: z.string().min(1).max(255),
+  description: z.object({}),
+  goal: z.string(),
+  force: z.coerce.number(),
+  size: z.string(),
+  wealth: z.coerce.number(),
+  homeWorld: z.string()
+})
+
 export default function NewFaction() {
   const [createFaction] = useMutation(CREATE_FACTION);
   const { campaignId } = useParams<{ campaignId: string }>();
@@ -60,6 +73,7 @@ export default function NewFaction() {
       goal: "",
       assets: [],
     },
+    validate: zodResolver(schema),
   });
 
   async function handleNext(values: FactionForm) {

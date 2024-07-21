@@ -1,10 +1,10 @@
 import { Paper, TextInput, Select, Grid } from "@mantine/core";
 import { UseFormReturnType } from "@mantine/form";
-import { JSONContent } from "@tiptap/react";
 import GoalSelect from "~/component/GoalSelect.tsx";
 import TextEditor from "~/component/TextEditor.tsx";
 import { FactionForm, FactionSize } from "~/types/FactionForm.ts";
 import WorldSelect from "~/component/WorldSelect.tsx";
+import statMap from "~/util/factions/statMap.ts";
 
 type Props = {
   form: UseFormReturnType<FactionForm, (values: FactionForm) => FactionForm>;
@@ -12,14 +12,6 @@ type Props = {
 };
 
 const sizes: FactionSize[] = ["Minor", "Major", "Regional Hegemon"];
-
-export const statMap: Record<FactionSize, string[]> = {
-  Minor: ["4", "3", "1"],
-  Major: ["6", "5", "2"],
-  "Regional Hegemon": ["8", "7", "4"],
-};
-
-const defaultContent: JSONContent = {};
 
 export default function FactionBaseData({ form, campaignId }: Props) {
   function handleSizeChanged(value: string | null) {
@@ -95,7 +87,7 @@ export default function FactionBaseData({ form, campaignId }: Props) {
       />
 
       <TextEditor
-        content={defaultContent}
+        content={form.values.description}
         onChange={(value) => form.setFieldValue("description", value)}
       />
     </Paper>

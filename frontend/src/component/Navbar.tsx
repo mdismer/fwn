@@ -4,7 +4,6 @@ import {
   IconDeviceDesktopAnalytics,
   IconHome2,
   IconLogout,
-  IconSwitchHorizontal,
   IconUser,
 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
@@ -45,7 +44,6 @@ export default function Navbar({ baseUrl }: Props) {
       to: `${baseUrl}/factions`,
     },
     { icon: IconCalendarStats, label: "Worlds", to: `${baseUrl}/worlds` },
-    { icon: IconUser, label: "Account", to: "/account" },
   ];
 
   const links = mockdata.map((link) => (
@@ -63,11 +61,12 @@ export default function Navbar({ baseUrl }: Props) {
       </div>
 
       <Stack justify="center" gap={0}>
-        <NavbarLink
-          icon={IconSwitchHorizontal}
-          label="Change account"
-          to="/switch-account"
-        />
+        <UnstyledButton
+          className={classes.link}
+          onClick={() => keycloak.accountManagement()}
+        >
+          <IconUser   style={{ width: rem(20), height: rem(20) }}   stroke={1.5} />
+        </UnstyledButton>
         <Tooltip
           label="Logout"
           position="right"

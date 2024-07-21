@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.krakend.io/schema/krakend.json",
   "version": 3,
-  "name": "KrakenD - API Gateway",
+  "name": "FWN - API GATEWAY",
   "timeout": "3000ms",
   "cache_ttl": "300s",
   "output_encoding": "json",
@@ -25,5 +25,19 @@
         }
       ]
     }
-  ]
+  ],
+  "extra_config": {
+    "server/static-filesystem": {
+      "path": "/opt/frontend"
+    },
+    "qos/ratelimit/service": {
+      "max_rate": 0,
+      "every": "1s",
+      "capacity": 100,
+      "client_max_rate": 10,
+      "strategy": "header",
+      "client_capacity": 10,
+      "key": "Authorization"
+    }
+  }
 }

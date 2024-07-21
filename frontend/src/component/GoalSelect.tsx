@@ -28,7 +28,7 @@ export default function GoalSelect({ label, value, onChange }: Props) {
   const [data, setData] = useState(
     defaultGoals.sort((a, b) => a.localeCompare(b)),
   );
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(value);
 
   const exactOptionMatch = data.some((item) => item === search);
   const filteredOptions = exactOptionMatch
