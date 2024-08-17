@@ -1,13 +1,4 @@
 services:
-  backend:
-    build:
-      context: ./fwn-api/
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-      - keycloak
-      - minio
   keycloak:
     image: quay.io/keycloak/keycloak:25.0.0
     environment:

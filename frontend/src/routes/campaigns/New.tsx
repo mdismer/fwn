@@ -7,29 +7,17 @@ import {
   Button,
 } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
-import { gql } from "../../__generated__";
-import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
-
-const CreateCampaign = gql(`
-mutation CreateCampaign($name: String!) {
-  campaignCreate(input: { clientMutationId: "CreateCampaign", name: $name }) {
-    campaign {
-      id
-      name
-    }
-  }
-}
-`);
+import useCampaignAPI from "~/hooks/useCampaignApi";
 
 const schema = z.object({
   name: z.string().min(2, { message: "Name should have at least 2 letters" }),
 });
 
 export default function NewCampaign() {
-  const [createCampaign] = useMutation(CreateCampaign);
-  const navigate = useNavigate();
+  const api = useCampaignAPI()
+  const navigate = useNavigate()
   const form = useForm({
     mode: "controlled",
     initialValues: {
@@ -39,9 +27,7 @@ export default function NewCampaign() {
   });
 
   async function handleSubmit(values: typeof form.values) {
-    await createCampaign({
-      variables: values,
-    });
+    await api.campaignsCreate({name: values.name})
     navigate("/");
   }
 

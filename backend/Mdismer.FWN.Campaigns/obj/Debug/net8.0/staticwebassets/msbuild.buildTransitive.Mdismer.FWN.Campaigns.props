@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/Mdismer.FWN.Campaigns.props" />
+</Project>

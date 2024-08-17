@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "Ch9Lhly9Lru3WVwWpWVJ+TZgTJzCPNzEC6YzjB+BmRw=",
+  "Source": "Mdismer.FWN.Campaigns",
+  "BasePath": "_content/Mdismer.FWN.Campaigns",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Base/Mdismer.FWN.Base.csproj",
+      "Version": 2,
+      "Source": "Mdismer.FWN.Base",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
