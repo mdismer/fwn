@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fhSDHqgdBFZjZzi/jzJHc+Hhtf1IOwoHFtLnS7NKYpk=",
+  "Hash": "hSK8lqj1495cyEOoSZVclABK7jCOzt3aHyELc7RXDUI=",
   "Source": "Mdismer.FWN.Host",
   "BasePath": "_content/Mdismer.FWN.Host",
   "Mode": "Default",
@@ -32,6 +32,17 @@
       "Identity": "/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Factions/Mdismer.FWN.Factions.csproj",
       "Version": 2,
       "Source": "Mdismer.FWN.Factions",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    },
+    {
+      "Identity": "/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Worlds/Mdismer.FWN.Worlds.csproj",
+      "Version": 2,
+      "Source": "Mdismer.FWN.Worlds",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
       "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",

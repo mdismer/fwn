@@ -1,0 +1,84 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "\\\\wsl.localhost\\Debian\\home\\mdismer\\Projects\\fwn\\backend\\Mdismer.FWN.Host\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CC267712-1C36-479A-9E42-E6845E404B9A}|Mdismer.FWN.Host.csproj|\\\\wsl.localhost\\debian\\home\\mdismer\\projects\\fwn\\backend\\mdismer.fwn.host\\mdismer.fwn.host.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B38C2320-02BA-4E46-83F8-F61919BE3BDF}|..\\Mdismer.FWN.Base\\Mdismer.FWN.Base.csproj|\\\\wsl.localhost\\debian\\home\\mdismer\\projects\\fwn\\backend\\mdismer.fwn.base\\mdismer.fwn.base.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B38C2320-02BA-4E46-83F8-F61919BE3BDF}|..\\Mdismer.FWN.Base\\Mdismer.FWN.Base.csproj|\\\\wsl.localhost\\debian\\home\\mdismer\\projects\\fwn\\backend\\mdismer.fwn.base\\startup\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CC267712-1C36-479A-9E42-E6845E404B9A}|Mdismer.FWN.Host.csproj|\\\\wsl.localhost\\debian\\home\\mdismer\\projects\\fwn\\backend\\mdismer.fwn.host\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Mdismer.FWN.Base",
+              "DocumentMoniker": "\\\\wsl.localhost\\Debian\\home\\mdismer\\Projects\\fwn\\backend\\Mdismer.FWN.Base\\Mdismer.FWN.Base.csproj",
+              "RelativeDocumentMoniker": "..\\Mdismer.FWN.Base\\Mdismer.FWN.Base.csproj",
+              "ToolTip": "\\\\wsl.localhost\\Debian\\home\\mdismer\\Projects\\fwn\\backend\\Mdismer.FWN.Base\\Mdismer.FWN.Base.csproj",
+              "RelativeToolTip": "..\\Mdismer.FWN.Base\\Mdismer.FWN.Base.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-10T10:34:58.151Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Mdismer.FWN.Host",
+              "DocumentMoniker": "\\\\wsl.localhost\\Debian\\home\\mdismer\\Projects\\fwn\\backend\\Mdismer.FWN.Host\\Mdismer.FWN.Host.csproj",
+              "RelativeDocumentMoniker": "Mdismer.FWN.Host.csproj",
+              "ToolTip": "\\\\wsl.localhost\\Debian\\home\\mdismer\\Projects\\fwn\\backend\\Mdismer.FWN.Host\\Mdismer.FWN.Host.csproj",
+              "RelativeToolTip": "Mdismer.FWN.Host.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-10T10:34:47.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "\\\\wsl.localhost\\Debian\\home\\mdismer\\Projects\\fwn\\backend\\Mdismer.FWN.Base\\Startup\\Class1.cs",
+              "RelativeDocumentMoniker": "..\\Mdismer.FWN.Base\\Startup\\Class1.cs",
+              "ToolTip": "\\\\wsl.localhost\\Debian\\home\\mdismer\\Projects\\fwn\\backend\\Mdismer.FWN.Base\\Startup\\Class1.cs",
+              "RelativeToolTip": "..\\Mdismer.FWN.Base\\Startup\\Class1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T10:34:20.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "\\\\wsl.localhost\\Debian\\home\\mdismer\\Projects\\fwn\\backend\\Mdismer.FWN.Host\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "\\\\wsl.localhost\\Debian\\home\\mdismer\\Projects\\fwn\\backend\\Mdismer.FWN.Host\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T10:31:29.266Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

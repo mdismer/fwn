@@ -2783,7 +2783,10 @@
         },
         "runtime": {
           "bin/placeholder/Mdismer.FWN.Worlds.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },

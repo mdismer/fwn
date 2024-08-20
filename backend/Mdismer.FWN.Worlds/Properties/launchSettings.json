@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Mdismer.FWN.Worlds": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:52727;http://localhost:52728"
+    }
+  }
+}

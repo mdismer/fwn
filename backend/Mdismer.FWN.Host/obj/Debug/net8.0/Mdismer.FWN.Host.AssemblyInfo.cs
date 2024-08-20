@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mdismer.FWN.Host")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79768859059cdff12c6c571fe959aff963db3fe4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0bc86b68953225eaa9402a0e4c3817a5c26bef60")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mdismer.FWN.Host")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mdismer.FWN.Host")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

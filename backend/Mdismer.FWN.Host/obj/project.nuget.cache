@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "t21cZpZwa0f8mRww9mwXdS5u2Q9b7XTJiRjynH3Xohs28bv5OaFopPCuvr4MsdiBORCEatqxqbvAgNZeD4TWMQ==",
+  "dgSpecHash": "1Z0+MCfinsdQloR6B94UifhKiSFK6QZ6RzAr/izUsC5QTjQzj1ahWpxxuBHk5crn2BMNaCH2vqb+7D0Dx+VDXQ==",
   "success": true,
   "projectFilePath": "/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/Mdismer.FWN.Host.csproj",
   "expectedPackageFiles": [

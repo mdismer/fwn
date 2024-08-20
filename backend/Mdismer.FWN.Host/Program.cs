@@ -60,14 +60,8 @@ var appConfig = ApplicationConfiguration.From(configuration);
 var modules = RegisterModules();
 
 ConfigureModules();
-RegisterModules(); 
-
-var authenticationOptions = new KeycloakAuthenticationOptions
-{
-    AuthServerUrl = "http://localhost:8088/",
-    Realm = "Test",
-    Resource = "test-client",
-};
+RegisterModules();
+ConfigureControllers();
 
 services.AddKeycloakWebApiAuthentication(configuration);
 
@@ -90,6 +84,8 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 
+
+
 app.Run();
 
 ConfigurationManager LoadConfiguration()
@@ -107,7 +103,7 @@ Mdismer.FWN.Host.ModuleRegistration.Module[] RegisterModules()
 {
     var moduleList = new List<Mdismer.FWN.Host.ModuleRegistration.Module>()
     {
-        new ("worlds", new WorldsModuleConfiguration(), typeof(WorldsDbContext)),
+        new ("Worlds", new WorldsModuleConfiguration(), typeof(WorldsDbContext)),
         new ("Campaigns", new CampaignsModuleConfiguration(), typeof(CampaignsDbContext)),
         new ("Factions", new FactionModuleConfiguration(), typeof(FactionsDbContext)),
     };

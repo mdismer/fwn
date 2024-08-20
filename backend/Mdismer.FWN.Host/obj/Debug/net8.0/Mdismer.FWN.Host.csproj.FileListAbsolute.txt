@@ -126,6 +126,12 @@
 //wsl.localhost/Debian/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
 //wsl.localhost/Debian/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Campaigns.dll
 //wsl.localhost/Debian/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Campaigns.pdb
+//wsl.localhost/Debian/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Keycloak.AuthServices.Authentication.dll
+//wsl.localhost/Debian/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Keycloak.AuthServices.Common.dll
+//wsl.localhost/Debian/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+//wsl.localhost/Debian/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+//wsl.localhost/Debian/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Factions.dll
+//wsl.localhost/Debian/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Factions.pdb
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/appsettings.Development.json
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/appsettings.json
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Host
@@ -135,10 +141,13 @@
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Host.pdb
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Humanizer.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/JetBrains.Annotations.dll
+/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Keycloak.AuthServices.Authentication.dll
+/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Keycloak.AuthServices.Common.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Keycloak.Client.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/MediatR.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/MediatR.Contracts.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.CodeAnalysis.dll
@@ -150,6 +159,7 @@
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Design.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.Design.dll
+/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
@@ -228,9 +238,11 @@
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Base.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Campaigns.dll
+/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Factions.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Worlds.dll
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Base.pdb
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Campaigns.pdb
+/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Factions.pdb
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Worlds.pdb
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/obj/Debug/net8.0/Mdismer.FWN.Host.csproj.AssemblyReference.cache
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/obj/Debug/net8.0/Mdismer.FWN.Host.GeneratedMSBuildEditorConfig.editorconfig
@@ -254,9 +266,3 @@
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/obj/Debug/net8.0/Mdismer.FWN.Host.pdb
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/obj/Debug/net8.0/Mdismer.FWN.Host.genruntimeconfig.cache
 /home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/obj/Debug/net8.0/ref/Mdismer.FWN.Host.dll
-/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Keycloak.AuthServices.Authentication.dll
-/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Keycloak.AuthServices.Common.dll
-/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
-/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Factions.dll
-/home/mdismer/Projects/fwn/backend/Mdismer.FWN.Host/bin/Debug/net8.0/Mdismer.FWN.Factions.pdb

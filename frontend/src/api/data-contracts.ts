@@ -18,6 +18,17 @@ export interface CreateCampaignResult {
   id?: string;
 }
 
+export interface CreateWorld {
+  /** @format uuid */
+  campaignId?: string;
+  name?: string | null;
+}
+
+export interface CreateWorldResult {
+  /** @format uuid */
+  id?: string;
+}
+
 export interface FactionListDto {
   /** @format uuid */
   id?: string;
@@ -25,6 +36,12 @@ export interface FactionListDto {
 }
 
 export interface GetCampaignsResult {
+  /** @format uuid */
+  id?: string;
+  name?: string | null;
+}
+
+export interface WorldListDto {
   /** @format uuid */
   id?: string;
   name?: string | null;
