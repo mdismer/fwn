@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/Mdismer.FWN.Host.props" />
-</Project>
